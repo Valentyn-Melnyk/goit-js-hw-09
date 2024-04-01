@@ -1,0 +1,2 @@
+import"./assets/styles-56d1709d.js";const l=document.querySelector(".login-form");l.addEventListener("submit",n);function n(r){r.preventDefault();const e=r.target,t=e.elements.email.value.trim(),o=e.elements.password.value.trim();if(t===""||o==="")alert("All form fields must be filled in");else{console.log(`Login:${t}, Password:${o}`);const s={login:t.trim(),password:o.trim()};return console.log(s),e.reset(),s}}
+//# sourceMappingURL=commonHelpers2.js.map
