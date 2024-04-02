@@ -33,3 +33,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+textarea {
+  resize: none;
+}

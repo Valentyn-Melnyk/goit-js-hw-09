@@ -1,39 +1,4 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
 /* #region ------ Add reset ---------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style-type: none;
-}
-img {
-  display: block;
-  max-width: 100%;
-  /* height: auto;
-  object-fit: cover; */
-}
-a {
-  /* text-decoration: none; */
-  color: currentColor;
-}
 button {
   cursor: pointer;
   font-family: inherit;
@@ -47,32 +12,23 @@ button {
   width: 120px;
   align-items: center;
 }
-input,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-}
-textarea {
-  resize: none;
-}
 /* #endregion ------ Add reset ---------------------------- */
 
 body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
   margin: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
-  line-height: 1.5;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
 
-
-.login-form {
+.feedback-form {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -98,7 +54,7 @@ input[type='email'] {
 input[type='email']:focus {
   border-color: #000000;
 }
-input[type='password'] {
+textarea {
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #2e2f42;
@@ -106,8 +62,9 @@ input[type='password'] {
   outline: transparent;
   border: 1px solid #808080;
   border-radius: 4px;
+  height: 80px;
 }
-input[type='password']:focus {
+textarea:focus {
   border-color: #000000;
 }
 
@@ -126,5 +83,3 @@ button[type='submit'] {
 button[type='submit']:hover {
   background-color: #6c8cff;
 }
-
- 

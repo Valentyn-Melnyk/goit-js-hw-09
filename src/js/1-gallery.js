@@ -3,11 +3,6 @@ import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-var lightbox = new SimpleLightbox('.gallery a', {
-  /* options */
-});
-console.log(SimpleLightbox);
-
 const images = [
   {
     preview:
@@ -76,7 +71,6 @@ const images = [
 
 const imagesList = document.querySelector('.gallery');
 
-// 2 варіант виконання - Шаблонний рядок
 function createGallery(images) {
   return images
     .map(
@@ -87,6 +81,7 @@ function createGallery(images) {
       src="${preview}"
       data-source="${original}"
       alt="${description}"
+      title="${description}"
     />
   </a>
 </li>`
@@ -95,48 +90,7 @@ function createGallery(images) {
 }
 imagesList.innerHTML = createGallery(images);
 
-// 1 варіант виконання - createElement
-// function createGallery(imagesArr) {
-//   const arrayElementLi = [];
-//   imagesArr.forEach(el => {
-//     const galleryItemLi = document.createElement('li');
-//     galleryItemLi.classList.add('gallery-item');
-
-//     const galleryLink = document.createElement('a');
-//     galleryLink.classList.add('gallery-link');
-//     galleryLink.href = el.original;
-
-//     const galleryImage = document.createElement('img');
-//     galleryImage.classList.add('gallery-image');
-//     galleryImage.src = el.preview;
-//     galleryImage.dataset.source = el.original;
-//     galleryImage.alt = el.description;
-//     galleryImage.setAttribute('role', 'button');
-
-//     galleryLink.append(galleryImage);
-//     galleryItemLi.append(galleryLink);
-//     arrayElementLi.push(galleryItemLi);
-//   });
-//   imagesList.append(...arrayElementLi);
-//   return imagesList;
-// }
-// createGallery(images);
-
-imagesList.addEventListener('click', function (event) {
-  event.preventDefault();
-  // event.target.nodeName === 'IMG'
-  if (event.target !== event.currentTarget) {
-    const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" alt="${event.target.description}">
-  `);
-    instance.show();
-
-    const handleClickEscape = event => {
-      if (event.code === 'Escape') {
-        instance.close();
-        document.removeEventListener('keydown', handleClickEscape);
-      }
-    };
-    document.addEventListener('keydown', handleClickEscape);
-  }
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
 });
+// console.log(SimpleLightbox);
