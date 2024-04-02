@@ -40,7 +40,7 @@ function handleSubmit(event) {
     };
     localStorage.setItem(localStorageKey, JSON.stringify(formRezultObj));
     console.log(formRezultObj);
-    // localStorage.removeItem(localStorageKey);
+    localStorage.removeItem(localStorageKey);
     form.reset();
     return formRezultObj;
   }
