@@ -1,3 +1,4 @@
+// мій варіант
 const registerForm = document.querySelector('.feedback-form');
 const localStorageKey = 'feedback-form-state';
 
@@ -51,3 +52,56 @@ function handleSubmit(event) {
     return formRezultObj;
   }
 }
+
+// варіант з лекції (не зовсім коректний, якщо дописувати в текстерію - то email зникає)
+// const feedbackFormEl = document.querySelector('.feedback-form');
+// const userData = {};
+
+// const fillFeedbackFormFields = () => {
+//   try {
+//     const userDataFromLS = JSON.parse(
+//       localStorage.getItem('feedback-form-state')
+//     );
+
+//     if (userDataFromLS === null) {
+//       return;
+//     }
+
+//     // feedbackFormEl.elements.user_name.value = userDataFromLS.user_name;
+//     // feedbackFormEl.elements.user_email.value = userDataFromLS.user_email;
+//     // feedbackFormEl.elements.user_message.value = userDataFromLS.user_message;
+
+//     for (const key in userDataFromLS) {
+//       feedbackFormEl.elements[key].value = userDataFromLS[key];
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+// fillFeedbackFormFields();
+
+// const onFeedbackFieldChange = event => {
+//   // const feedbackFieldEl = event.target;
+//   const { target: feedbackFieldEl } = event;
+
+//   const feedbackFieldName = feedbackFieldEl.name;
+//   const feedbackFieldValue = feedbackFieldEl.value;
+
+//   console.log('feedbackFieldName: ', feedbackFieldName);
+//   console.log('feedbackFieldValue: ', feedbackFieldValue);
+
+//   userData[feedbackFieldName] = feedbackFieldValue;
+
+//   localStorage.setItem('feedback-form-state', JSON.stringify(userData));
+// };
+
+// const onFedbackFormSubmit = event => {
+//   event.preventDefault();
+
+//   localStorage.removeItem('feedback-form-state');
+//   feedbackFormEl.reset();
+// };
+
+// feedbackFormEl.addEventListener('input', onFeedbackFieldChange);
+// feedbackFormEl.addEventListener('submit', onFedbackFormSubmit);
