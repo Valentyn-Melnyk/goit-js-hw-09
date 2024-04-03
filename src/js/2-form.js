@@ -4,12 +4,17 @@ const localStorageKey = 'feedback-form-state';
 const localStorageKeyValue = localStorage.getItem(localStorageKey);
 
 // form.elements.message.value = localStorage.getItem(localStorageKey) ?? '';
-let storageValueObject = {};
+let storageValueObject = { email: '', textarea: '' };
 
 if (localStorageKeyValue !== null) {
-  storageValueObject = JSON.parse(localStorageKeyValue);
-  registerForm.elements.email.value = storageValueObject.email;
-  registerForm.elements.message.value = storageValueObject.textarea;
+  try {
+    storageValueObject = JSON.parse(localStorageKeyValue);
+    registerForm.elements.email.value = storageValueObject.email;
+    registerForm.elements.message.value = storageValueObject.textarea;
+  } catch (error) {
+    registerForm.elements.email.value = '';
+    registerForm.elements.message.value = '';
+  }
 }
 
 registerForm.addEventListener('input', evt => {
@@ -41,6 +46,7 @@ function handleSubmit(event) {
     localStorage.setItem(localStorageKey, JSON.stringify(formRezultObj));
     console.log(formRezultObj);
     localStorage.removeItem(localStorageKey);
+    storageValueObject = { email: '', textarea: '' };
     form.reset();
     return formRezultObj;
   }

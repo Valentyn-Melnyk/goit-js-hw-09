@@ -91,6 +91,7 @@ function createGallery(images) {
 imagesList.innerHTML = createGallery(images);
 
 const lightbox = new SimpleLightbox('.gallery a', {
+  captionData: 'alt',
   captionDelay: 250,
 });
-// console.log(SimpleLightbox);
+console.log(SimpleLightbox);
